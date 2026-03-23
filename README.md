@@ -170,6 +170,40 @@ The service starts automatically on boot and restarts on crash (after 60 seconds
 
 ---
 
+## Changing Configuration
+
+The agent reads `appsettings.json` once at startup. Any changes require a service restart to take effect.
+
+**To change settings:**
+
+```powershell
+sc.exe stop TaptixSyncAgent
+notepad C:\TaptixSyncAgent\appsettings.json
+sc.exe start TaptixSyncAgent
+```
+
+**Common changes:**
+
+| Setting | When to change |
+|---|---|
+| `Server=` in ConnectionString | SQL Server IP or password changed |
+| `Timezone` | POS machine moved to a different timezone |
+| `InstanceId` | Renaming the client |
+| `AutoUpdate:Enabled` | Disable auto-updates (set to `false`) |
+| `AutoUpdate:CheckIntervalMinutes` | Change how often the agent checks for updates (default: 60) |
+
+> **Tip:** After changing settings, verify the agent started correctly: `sc.exe query TaptixSyncAgent` (should show `RUNNING`). If it fails, check the logs.
+
+**To change credentials (username/password):**
+
+```powershell
+sc.exe stop TaptixSyncAgent
+.\Taptix.SyncAgent.exe setup <new-username> <new-password>
+sc.exe start TaptixSyncAgent
+```
+
+---
+
 ## Viewing Logs
 
 Logs are in the `logs\` folder inside the installation directory.
