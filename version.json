@@ -1,9 +1,9 @@
 {
-  "version": "0.0.0",
+  "version": "3.2.0",
   "releaseDate": "2026-03-23",
-  "downloadUrl": "",
-  "checksum": "",
+  "downloadUrl": "https://github.com/urick/TapTix-Sync-Agent/releases/download/v3.2.0/TaptixSyncAgent-v3.2.0-win-x64.zip",
+  "checksum": "sha256:4f39638720c1e6815322b5f80287819bbb22c5cfad892372c1ae1ea624ee1877",
   "mandatory": false,
-  "releaseNotes": "Initial placeholder - no release yet",
-  "minAgentVersion": "0.0.0"
+  "releaseNotes": "Release 3.2.0",
+  "minAgentVersion": "3.2.0"
 }
